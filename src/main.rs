@@ -60,11 +60,29 @@ fn main() {
 
             let t = text::Text::new_color(white, 14);
 
+            let mut i = 0;
+            for tile in screen.tiles {
+                // can figure out x and y from i
+                if (i < 32) {
+                    let transform = c.transform.trans(
+                        (i as f64) * font_size,
+                        ((0 as f64) + 1.0) * font_size
+                    );
+
+                    t.draw(".", &mut glyphs, &c.draw_state, transform, g);
+                }
+
+                i += 1;
+            }
+
+            /*
             for y in 0 .. screen.height {
+                println!("starting y loop with {}", y);
+
                 let range_start = y * screen.width;
                 let range_end = range_start + screen.width;
 
-                for x in range_start .. range_end {
+                for x in 0 .. screen.width {
                     let transform = c.transform.trans(
                         (x as f64) * font_size,
                         ((y as f64) + 1.0) * font_size
@@ -80,6 +98,7 @@ fn main() {
                     println!("finished render to {}, {}", x, y);
                 }
             }
+            */
         });
 
         /*
