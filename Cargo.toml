@@ -1,0 +1,8 @@
+[package]
+name = "simple"
+version = "0.1.0"
+authors = ["Noah Muth <noah.muth@code42.com>"]
+
+[dependencies]
+piston_window = "0.32.0"
+find_folder = "0.3.0"
